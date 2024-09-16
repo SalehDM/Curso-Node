@@ -1,0 +1,17 @@
+{
+  "name": "5appinteractiva",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@inquirer/prompts": "^5.5.0",
+    "5appinteractiva": "file:",
+    "uuid": "^10.0.0"
+  }
+}
