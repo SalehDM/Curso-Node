@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 
 const { validateValues } = require("../middlewares/validate-values");
-const { validRole, validEmail } = require("../helpers/db-validators");
+const { validRole, validEmail, validId } = require("../helpers/db-validators");
 const {
   userGet,
   userPut,
@@ -32,9 +32,19 @@ router.post(
   userPost
 );
 
-router.put("/:id", userPut);
+router.put("/:id",[
+  check('id', 'No es in ID válido').isMongoId(),
+  check('id').custom(validId),
+  check("role").custom(validRole),
+  validateValues
 
-router.delete("/", userDelete);
+], userPut);
+
+router.delete("/:id",[
+  check('id', 'No es in ID válido').isMongoId(),
+  check('id').custom(validId),
+  validateValues
+], userDelete);
 
 router.patch("/", userPatch);
 

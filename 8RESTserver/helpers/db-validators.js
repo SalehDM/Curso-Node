@@ -10,12 +10,20 @@ const validRole = async (role = "") => {
 
 const validEmail = async (email = "") => {
   const emailExists = await User.findOne({ email });
-  if (emailExist) {
+  if (emailExists) {
     throw new Error(`El email: ${email} ya está egistrado`);
+  }
+};
+
+const validId = async (id) => {
+  const idExists = await User.findById(id);
+  if (!idExists) {
+    throw new Error(`El id: ${id} no se encuentra en la base de datos`);
   }
 };
 
 module.exports = {
   validRole,
   validEmail,
+  validId
 };
