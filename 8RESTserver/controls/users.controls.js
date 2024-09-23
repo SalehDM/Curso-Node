@@ -50,7 +50,7 @@ const userPut = async(req, res = Response) => {
   }
 
 
-  const user = await User.findByIdAndUpdate(id, rest);
+  const user = await User.findByIdAndUpdate(id, rest, {new: true});
 
 
   res.json(user);
@@ -59,19 +59,26 @@ const userPut = async(req, res = Response) => {
 const userDelete = async (req, res = Response) => {
   
   const {id} = req.params;
+  const userDelete = await User.findById(id);
+  if (!userDelete.statusUser) {
+    return res.status(401).json({
+        msg: 'ID no válido - estado de usuario false'
+    });
+  }
+
 
   //Borrado físico
   //const user = await User.findByIdAndDelete(id);
 
   //Cambiar estado del usuario
   const user = await User.findByIdAndUpdate(id, {statusUser: false});
-
+  const userAdmin = req.userAdmin;
 
 
   res.json({
     msg: "delete API - Controlador",
-    id,
-    user
+    user,
+    userAdmin
   });
 };
 
