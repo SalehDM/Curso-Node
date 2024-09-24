@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "7webserver": "file:",
     "express": "^4.21.0",
     "hbs": "^4.2.0"
   },
