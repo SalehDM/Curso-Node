@@ -3,7 +3,7 @@ const { check } = require("express-validator");
 
 const { validateValues } = require("../middlewares/validate-values");
 
-const { login } = require('../controls/auth.controls');
+const { login, googleSingIn } = require('../controls/auth.controls');
 
 const router = Router();
 
@@ -13,6 +13,11 @@ router.post("/login", [
 
     validateValues
 ], login);
+
+router.post("/google", [
+    check("id_token", "El token de google es necesario").not().isEmpty(),
+    validateValues
+], googleSingIn);
 
 
 
