@@ -39,7 +39,7 @@ router.post(
 );
 
 router.put("/:id",[
-  check('id', 'No es in ID válido').isMongoId(),
+  check('id', 'No es un ID válido').isMongoId(),
   check('id').custom(validId),
   check("role").custom(validRole),
   validateValues
