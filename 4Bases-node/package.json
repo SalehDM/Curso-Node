@@ -10,7 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "4bases-node": "file:",
     "yargs": "^17.7.2"
   }
 }
