@@ -115,7 +115,7 @@ const googleSingIn = async (req, res = Response) => {
   
 };  
 
-  module.exports = {
+module.exports = {
     login,
     googleSingIn
 };
