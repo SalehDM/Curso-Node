@@ -35,11 +35,23 @@ const validIdProduct = async (id) => {
   }
 }
 
+//validar colecciones permitidas para cargar archivos
+const allowedCollections = (collection = '', collections = []) => {
+    
+  if (!collections.includes(collection)) {
+    throw new Error(`La colección ${collection} no se encuentra en la coleccion permitida, ${collections}`);
+  }
+
+  return true;
+
+}
+
 
 module.exports = {
   validRole,
   validEmail,
   validId,
   validIdCategory,
-  validIdProduct
+  validIdProduct,
+  allowedCollections
 };
