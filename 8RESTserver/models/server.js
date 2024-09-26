@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors"); //Para controlar los accesos al servidor
-const { dbConnection } = require("../database/config.db");
+const { dbConnection } = require("../database/config");
 
 class Server {
   constructor() {
@@ -10,7 +10,8 @@ class Server {
     this.path = {
       auth:       "/api/auth",
       users:       "/api/users",
-      categories:   "/api/categories"
+      categories:   "/api/categories",
+      products:   "/api/products"
     }
 
 
@@ -41,9 +42,10 @@ class Server {
   }
 
   routes() {
-    this.app.use(this.path.auth, require("../routes/auth.routes"));
-    this.app.use(this.path.users, require("../routes/user.routes"));
-    this.app.use(this.path.categories, require("../routes/categories.routes"));
+    this.app.use(this.path.auth, require("../routes/auth"));
+    this.app.use(this.path.users, require("../routes/user"));
+    this.app.use(this.path.categories, require("../routes/categories"));
+    this.app.use(this.path.products, require("../routes/products"));
   }
 
   listen() {

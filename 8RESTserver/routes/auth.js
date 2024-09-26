@@ -3,7 +3,7 @@ const { check } = require("express-validator");
 
 const { validateValues } = require("../middlewares/validate-values");
 
-const { login, googleSingIn } = require('../controls/auth.controls');
+const { login, googleSingIn } = require('../controllers/auth');
 
 const router = Router();
 

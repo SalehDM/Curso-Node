@@ -7,7 +7,7 @@ const {
     categoryGet,
     categoryPut,
     categoryDelete
-} = require('../controls/categories.controls');
+} = require('../controllers/categories');
 
 const {validateValues, validateJWT, isAdminRole} = require('../middlewares')
 

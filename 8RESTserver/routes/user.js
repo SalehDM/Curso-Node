@@ -15,7 +15,7 @@ const {
   userPost,
   userDelete,
   userPatch,
-} = require("../controls/users.controls");
+} = require("../controllers/users");
 
 const router = Router();
 
