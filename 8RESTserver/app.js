@@ -1,6 +1,6 @@
-require("dotenv").config(); //para las variables de entorno, Ej: PORT
+require('dotenv').config(); //para las variables de entorno, Ej: PORT
 
-const {Server} = require("./models");
+const { Server } = require('./models');
 
 const server = new Server();
 
