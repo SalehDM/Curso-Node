@@ -11,7 +11,7 @@ class SearchCity {
   get openWeatherCities() {
     return {
       limit: "5",
-      appid: process.env.OPENCITY_KEY,
+      appid: process.env.OPENWEATHER_KEY,
     };
   }
 
